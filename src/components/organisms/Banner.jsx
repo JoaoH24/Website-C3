@@ -7,7 +7,7 @@ const Banner = () => {
   return (
     <div
       className={
-        "flex flex-row justify-evenly items-center  h-dvh bg-[radial-gradient(circle_at_0%_40%,rgb(13,17,23)_0%,transparent_100%),linear-gradient(180deg,transparent_0%,rgb(13,17,23)_80%),linear-gradient(270deg,transparent_0%,rgb(13,17,23)_80%),url('/src/assets/images/UNI.png')] bg-cover bg-no-repeat bg-center"
+        "flex flex-row justify-evenly items-center  h-dvh bg-[radial-gradient(circle_at_0%_40%,rgb(13,17,23)_0%,transparent_100%),linear-gradient(180deg,transparent_0%,rgb(13,17,23)_85%),linear-gradient(270deg,transparent_0%,rgb(13,17,23)_80%),url('/src/assets/images/UNI.png')] bg-cover bg-no-repeat bg-center"
       }
     >
       <div className="flex flex-col gap-10 max-w-2xl">

@@ -14,11 +14,11 @@ const Navbar = (className = "") => {
       </div>
       <div>
         <ul className="flex flex-row flex-wrap justify-between gap-10">
-          <Link type={"title"}>Junta Directiva</Link>
-          <Link type={"title"}>Roadmaps</Link>
-          <Link type={"title"}>Catálogo</Link>
-          <Link type={"title"}>Logros</Link>
-          <Link type={"title"}>Blog</Link>
+          <Link type={"normal"}>Junta Directiva</Link>
+          <Link type={"normal"}>Roadmaps</Link>
+          <Link type={"normal"}>Catálogo</Link>
+          <Link type={"normal"}>Logros</Link>
+          <Link type={"normal"}>Blog</Link>
         </ul>
       </div>
 
