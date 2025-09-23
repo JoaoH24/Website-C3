@@ -1,24 +1,36 @@
-import Link from "../atoms/Link";
+import { Link } from "react-router-dom";
 import PrimaryButton from "../atoms/PrimaryButton";
 import ProfileImage from "../atoms/ProfileImage";
 
 import Logo from "../../assets/Logo.png";
 
-const Navbar = (className = "") => {
+const Navbar = ({ className = "" }) => {
   return (
     <nav
       className={`bg-transparent flex flex-row flex-wrap justify-between items-center px-4 ${className}`}
     >
       <div>
-        <ProfileImage type={"logo"} path={Logo}></ProfileImage>
+        <Link to={"/"} target="_self">
+          <ProfileImage type={"logo"} path={Logo}></ProfileImage>
+        </Link>
       </div>
       <div>
         <ul className="flex flex-row flex-wrap justify-between gap-10">
-          <Link type={"normal"}>Junta Directiva</Link>
-          <Link type={"normal"}>Roadmaps</Link>
-          <Link type={"normal"}>Catálogo</Link>
-          <Link type={"normal"}>Logros</Link>
-          <Link type={"normal"}>Blog</Link>
+          <Link className="text-white font-medium" to={"/directiva"}>
+            Junta Directiva
+          </Link>
+          <Link className="text-white font-medium" to={"/roadmap"}>
+            Roadmaps
+          </Link>
+          <Link className="text-white font-medium" to={"/catalogo"}>
+            Catálogo
+          </Link>
+          <Link className="text-white font-medium" to={"/logros"}>
+            Logros
+          </Link>
+          <Link className="text-white font-medium" to={"/blog"}>
+            Blog
+          </Link>
         </ul>
       </div>
 
