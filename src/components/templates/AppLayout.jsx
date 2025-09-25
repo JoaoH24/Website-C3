@@ -1,11 +1,14 @@
 import { Outlet } from "react-router-dom";
+import StaticNavbar from "../organisms/StaticNavbar";
 import Navbar from "../organisms/Navbar";
 import Footer from "../organisms/Footer";
+import FadeInSection from "../FadeInSection";
 
 const AppLayout = () => {
   return (
     <>
-      <header className="fixed w-full">
+      <header>
+        <StaticNavbar></StaticNavbar>
         <Navbar></Navbar>
       </header>
 
@@ -13,7 +16,7 @@ const AppLayout = () => {
         <Outlet></Outlet>
       </main>
 
-      <footer>
+      <footer className="bg-bgd pt-10">
         <Footer></Footer>
       </footer>
     </>

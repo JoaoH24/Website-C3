@@ -1,11 +1,10 @@
 import Panel from "../atoms/Panel";
+import PrimaryButton from "../atoms/PrimaryButton";
 import Field from "../molecules/Field";
 
-const PanelForm = (columns, rows, className) => {
+const PanelForm = (className = "") => {
   return (
-    <Panel
-      className={`m-10 p-8 grid grid-cols-${columns} grid-rows-${rows} gap-2`}
-    >
+    <Panel className={`m-10 p-8 grid gap-2`}>
       <Field
         label={"Nombres (*)"}
         placeholder={">_"}
@@ -49,6 +48,12 @@ const PanelForm = (columns, rows, className) => {
         rowsArea={4}
         className={`col-span-8 ${className}`}
       ></Field>
+      <div className="flex flex-row">
+        <PrimaryButton
+          text={"ENVIAR MENSAJE"}
+          className={"my-4"}
+        ></PrimaryButton>
+      </div>
     </Panel>
   );
 };
