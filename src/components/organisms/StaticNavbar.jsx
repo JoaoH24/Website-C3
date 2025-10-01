@@ -7,7 +7,7 @@ import Logo from "../../assets/Logo.png";
 const StaticNavbar = ({ className = "" }) => {
   return (
     <nav
-      className={`bg-transparent flex flex-row flex-wrap absolute w-full justify-between items-center px-4 ${className}`}
+      className={`bg-transparent flex flex-row flex-wrap absolute z-20 w-full justify-between items-center px-4 ${className}`}
     >
       <div>
         <Link to={"/"} target="_self">

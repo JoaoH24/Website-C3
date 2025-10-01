@@ -19,7 +19,7 @@ const Banner = () => {
             <div className="flex flex-row flex-wrap">
               <Text type={"gradient"} size={"5xl"}>
                 C
-                <sup className="font-normal bg-linear-140 from-main to-complement bg-clip-text text-transparent">
+                <sup className="bg-linear-140 from-main to-complement bg-clip-text text-transparent font-bold">
                   3
                 </sup>
                 :

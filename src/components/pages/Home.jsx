@@ -6,6 +6,7 @@ import Heading from "../atoms/Heading";
 import Text from "../atoms/Text";
 import Carousel from "../organisms/Carousel";
 import TwoColumnSection from "../templates/TwoColumnSection";
+import AdCard from "../organisms/AdCard";
 
 const Home = () => {
   return (
@@ -14,11 +15,11 @@ const Home = () => {
 
       <FadeInSection>
         <SimpleSection className="gap-10">
-          <Heading level={2} size={3} className="text-center">
+          <Heading level={2} size={4} className="text-center">
             ¿Quienes Somos?
           </Heading>
           <div>
-            <Text size="xl" className="text-center px-100">
+            <Text size="2xl" className="text-center px-100">
               El
               <Text type="gradient">
                 {" "}
@@ -29,7 +30,7 @@ const Home = () => {
               del pensamiento crítico frente a los desafíos del mundo
               tecnológico actual.
             </Text>
-            <Text size="xl" className="text-center px-100">
+            <Text size="2xl" className="text-center px-100">
               Buscamos conectar a estudiantes, profesionales, instituciones y
               entusiastas en un espacio donde el conocimiento, la ética y la
               innovación se encuentren. A través de talleres, charlas, proyectos
@@ -44,7 +45,7 @@ const Home = () => {
 
       <FadeInSection>
         <SimpleSection className="gap-10">
-          <Heading level={2} size={3} className="text-center">
+          <Heading level={2} size={4} className="text-center">
             Junta Directiva
           </Heading>
           <Carousel />
@@ -61,12 +62,31 @@ const Home = () => {
                 ¿Te gustaría colaborar con nosotros?
               </Heading>
               <Text type="green" size="2xl" className="max-w-xl">
-                Si representas a una empresa…
+                Si representas a una empresa, institución educativa o deseas
+                vincularte como aliado estratégico, este es el lugar para
+                comenzar.
               </Text>
             </>
           }
           childrenRight={<PanelForm className="w-40" />}
         />
+        <div className="flex gap-10">
+          <AdCard
+            pathImage={"/src/assets/images/LogoC3Conf-Photoroom.png"}
+            title={"Tercera Cumbre Anual de Ciberseguridad"}
+            place={"FIEE - Universidad Nacional de Ingeniería"}
+            date={"27,28 y 29 de noviembre"}
+          ></AdCard>
+          <AdCard
+            pathImage={"/src/assets/images/LogoCCCTF-Photoroom.png"}
+            descriptionImage={
+              "Logo relacionado a el capture de flag organizado por c3"
+            }
+            title={"C3 Capture the Flag"}
+            place={"FIEE - Universidad Nacional de Ingeniería"}
+            date={"27,28 y 29 de noviembre"}
+          ></AdCard>
+        </div>
       </FadeInSection>
     </div>
   );

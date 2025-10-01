@@ -4,7 +4,7 @@ import Field from "../molecules/Field";
 
 const PanelForm = (className = "") => {
   return (
-    <Panel className={`m-10 p-8 grid gap-2`}>
+    <Panel className={`p-8 grid gap-2`}>
       <Field
         label={"Nombres (*)"}
         placeholder={">_"}

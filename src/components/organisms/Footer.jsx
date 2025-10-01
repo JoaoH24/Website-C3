@@ -1,4 +1,8 @@
 import Icon from "../atoms/Icon";
+import { IconBrandFacebook } from "@tabler/icons-react";
+import { IconBrandInstagram } from "@tabler/icons-react";
+import { IconBrandTiktok } from "@tabler/icons-react";
+import { IconBrandGithub } from "@tabler/icons-react";
 import { Link } from "react-router-dom";
 import Text from "../atoms/Text";
 
@@ -36,7 +40,12 @@ const Footer = () => {
             </Text>
             <div className="flex flex-col gap-1">
               {Object.entries(subtitle).map(([label, { url, target }]) => (
-                <Link to={url} target={target} className="text-white">
+                <Link
+                  key={label}
+                  to={url}
+                  target={target}
+                  className="text-white"
+                >
                   {label}
                 </Link>
               ))}
@@ -45,9 +54,24 @@ const Footer = () => {
         ))}
       </div>
       <div className="bg-bgl mx-20 h-0.5"></div>
-      <div className="flex flex-row px-20 pt-5 pb-10 text-bgl">
-        &copy; 2025 Todos los izquierdos reservados
-        <div className="flex flex-row"></div>
+      <div className="flex flex-row px-20 min-h-14 text-bgl justify-between items-center">
+        <Text weight={"medium"}>
+          &copy; 2025 Todos los izquierdos reservados
+        </Text>
+        <div className="flex">
+          <Link to={"https://web.facebook.com/CCCUNI"} target="_blank">
+            <IconBrandFacebook color="#d4d8e3" stroke={2} />
+          </Link>
+          <Link to={"https://www.instagram.com/c_cubico_ccc/"} target="_blank">
+            <IconBrandInstagram color="#d4d8e3" stroke={2} />
+          </Link>
+          <Link to={"https://www.tiktok.com/@cccuni"} target="_blank">
+            <IconBrandTiktok color="#d4d8e3" stroke={2} />
+          </Link>
+          <Link to={"https://github.com/JoaoH24/Website-C3"} target="_blank">
+            <IconBrandGithub color="#d4d8e3" stroke={2} />
+          </Link>
+        </div>
       </div>
     </div>
   );
