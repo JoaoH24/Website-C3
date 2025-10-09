@@ -253,9 +253,12 @@
   --color-bgd: #0d1117;
   --color-bgl: #d4d8e3;
   --color-sh: #2e2e2e;
-  --color-complement: #00bfff;
+  --color-mid: #0fb990;
+  --color-complement: #1e73b7;
   --color-alert: #ff3b3b;
   --color-card: #161c25;
+  --color-text-w: #ffffffff;
+  --color-text-b: #000000ff;
   /* Fuentes tipograficas*/
   --font-hs: "Montserrat", sans;
   --font-ps: "Lato", sans;

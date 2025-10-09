@@ -60,16 +60,16 @@ const Footer = () => {
         </Text>
         <div className="flex">
           <Link to={"https://web.facebook.com/CCCUNI"} target="_blank">
-            <IconBrandFacebook color="#d4d8e3" stroke={2} />
+            <IconBrandFacebook color="var(--color-bgl)" stroke={2} />
           </Link>
           <Link to={"https://www.instagram.com/c_cubico_ccc/"} target="_blank">
-            <IconBrandInstagram color="#d4d8e3" stroke={2} />
+            <IconBrandInstagram color="var(--color-bgl)" stroke={2} />
           </Link>
           <Link to={"https://www.tiktok.com/@cccuni"} target="_blank">
-            <IconBrandTiktok color="#d4d8e3" stroke={2} />
+            <IconBrandTiktok color="var(--color-bgl)" stroke={2} />
           </Link>
           <Link to={"https://github.com/JoaoH24/Website-C3"} target="_blank">
-            <IconBrandGithub color="#d4d8e3" stroke={2} />
+            <IconBrandGithub color="var(--color-bgl)" stroke={2} />
           </Link>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import FadeInSection from "../FadeInSection";
+import FadeInSection from "../animations/FadeInSection";
 import Banner from "../organisms/Banner";
 import PanelForm from "../organisms/PanelForm";
 import SimpleSection from "../templates/SimpleSection";
@@ -7,10 +7,14 @@ import Text from "../atoms/Text";
 import Carousel from "../organisms/Carousel";
 import TwoColumnSection from "../templates/TwoColumnSection";
 import AdCard from "../organisms/AdCard";
+import { IconBrandOpenSourceFilled } from "@tabler/icons-react";
+import { IconBrandTablerFilled } from "@tabler/icons-react";
+import { IconBrandAngularFilled } from "@tabler/icons-react";
+import { IconBrandAppleFilled } from "@tabler/icons-react";
 
 const Home = () => {
   return (
-    <div className="grid grid-rows-[auto_1fr_auto] gap-20">
+    <div className="grid grid-rows-[auto_1fr_auto] gap-20 ">
       <Banner></Banner>
 
       <FadeInSection>
@@ -46,6 +50,31 @@ const Home = () => {
       <FadeInSection>
         <SimpleSection className="gap-10">
           <Heading level={2} size={4} className="text-center">
+            Anuncios
+          </Heading>
+          <div className="flex gap-10 justify-center">
+            <AdCard
+              pathImage={"/src/assets/images/LogoC3Conf-Photoroom.png"}
+              title={"Tercera Cumbre Anual de Ciberseguridad"}
+              place={"FIEE - Universidad Nacional de Ingeniería"}
+              date={"27,28 y 29 de noviembre"}
+            ></AdCard>
+            <AdCard
+              pathImage={"/src/assets/images/LogoCCCTF-Photoroom.png"}
+              descriptionImage={
+                "Logo relacionado a el capture de flag organizado por c3"
+              }
+              title={"C3 Capture the Flag"}
+              place={"FIEE - Universidad Nacional de Ingeniería"}
+              date={"27,28 y 29 de noviembre"}
+            ></AdCard>
+          </div>
+        </SimpleSection>
+      </FadeInSection>
+
+      <FadeInSection>
+        <SimpleSection className="flex flex-col gap-10">
+          <Heading level={2} size={4} className="text-center">
             Junta Directiva
           </Heading>
           <Carousel />
@@ -54,11 +83,11 @@ const Home = () => {
 
       <FadeInSection>
         <TwoColumnSection
-          className="bg-[linear-gradient(135deg,rgba(0,191,255,0.2)_15%,rgba(0,255,106,0.2)_55%,rgba(46,46,46,0.2)_100%)]"
+          className="bg-[linear-gradient(135deg,rgba(0,191,255,0.2)_15%,rgba(0,255,106,0.2)_55%,rgba(46,46,46,0.2)_100%)] py-20"
           dirChildenLeft="col"
           childrenLeft={
             <>
-              <Heading level={3} size={4} className="max-w-xl">
+              <Heading level={2} size={4} className="max-w-xl">
                 ¿Te gustaría colaborar con nosotros?
               </Heading>
               <Text type="green" size="2xl" className="max-w-xl">
@@ -70,23 +99,19 @@ const Home = () => {
           }
           childrenRight={<PanelForm className="w-40" />}
         />
-        <div className="flex gap-10">
-          <AdCard
-            pathImage={"/src/assets/images/LogoC3Conf-Photoroom.png"}
-            title={"Tercera Cumbre Anual de Ciberseguridad"}
-            place={"FIEE - Universidad Nacional de Ingeniería"}
-            date={"27,28 y 29 de noviembre"}
-          ></AdCard>
-          <AdCard
-            pathImage={"/src/assets/images/LogoCCCTF-Photoroom.png"}
-            descriptionImage={
-              "Logo relacionado a el capture de flag organizado por c3"
-            }
-            title={"C3 Capture the Flag"}
-            place={"FIEE - Universidad Nacional de Ingeniería"}
-            date={"27,28 y 29 de noviembre"}
-          ></AdCard>
-        </div>
+      </FadeInSection>
+      <FadeInSection>
+        <SimpleSection className="flex flex-col gap-10">
+          <Heading level={2} size={4} className="text-center">
+            Nuestros aliados estrategicos
+          </Heading>
+          <div className="flex gap-10 justify-center">
+            <IconBrandOpenSourceFilled color="var(--color-text-w)" size={50} />
+            <IconBrandTablerFilled color="var(--color-text-w)" size={50} />
+            <IconBrandAngularFilled color="var(--color-text-w)" size={50} />
+            <IconBrandAppleFilled color="var(--color-text-w)" size={50} />
+          </div>
+        </SimpleSection>
       </FadeInSection>
     </div>
   );

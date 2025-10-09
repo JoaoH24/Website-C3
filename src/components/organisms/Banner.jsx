@@ -1,8 +1,7 @@
 import PrimaryButton from "../atoms/PrimaryButton";
 import SecondaryButton from "../atoms/SecondaryButton";
-import Heading from "../atoms/Heading";
 import Text from "../atoms/Text";
-import FadeInSection from "../FadeInSection";
+import FadeInSection from "../animations/FadeInSection";
 
 const Banner = () => {
   return (

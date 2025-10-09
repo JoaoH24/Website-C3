@@ -16,9 +16,10 @@ const CarouselItem = ({
         type={"profile"}
         description={descriptionProfile}
         path={pathProfileImage}
+        className="my-4"
       ></ProfileImage>
       <Heading level={3} size={2} children={nameProfile}></Heading>
-      <Text children={rolProfile}></Text>
+      <Text children={rolProfile} size={"xl"}></Text>
     </div>
   );
 };

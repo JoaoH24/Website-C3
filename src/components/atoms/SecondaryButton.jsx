@@ -1,31 +1,24 @@
 const SecondaryButton = ({ text, children, positionChilden, className }) => {
-  if (positionChilden === "start") {
-    return (
-      <button
-        className={`bg-transparent border-main border-2 font-hs p-3 box-border text-xs font-bold text-main rounded-md ${className}`}
-      >
-        {children}
-        {text}
-      </button>
-    );
-  } else if (positionChilden === "end") {
-    return (
-      <button
-        className={`bg-transparent border-main border-2 font-hs p-3 box-border text-xs font-bold text-main rounded-md ${className}`}
-      >
-        {text}
-        {children}
-      </button>
-    );
-  } else {
-    return (
-      <button
-        className={`bg-transparent border-main border-2 font-hs p-3 box-border text-xs font-bold text-main rounded-md ${className}`}
-      >
-        {text}
-      </button>
-    );
-  }
+  const baseStyles = `
+    relative overflow-hidden
+    bg-transparent
+    border-2 border-[var(--color-mid)]
+    text-[var(--color-mid)]
+    rounded-md
+    font-hs font-bold text-sm p-3 px-6 box-border
+    transition-all duration-500 ease-in-out
+    shadow-[0_0_10px_rgba(15,185,144,0.3)] hover:shadow-[0_0_20px_rgba(15,185,144,0.6)]
+  `;
+
+  const content = (
+    <>
+      {positionChilden === "start" && children}
+      {text}
+      {positionChilden === "end" && children}
+    </>
+  );
+
+  return <button className={`${baseStyles} ${className}`}>{content}</button>;
 };
 
 export default SecondaryButton;

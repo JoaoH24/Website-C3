@@ -2,7 +2,6 @@ import { Outlet } from "react-router-dom";
 import StaticNavbar from "../organisms/StaticNavbar";
 import Navbar from "../organisms/Navbar";
 import Footer from "../organisms/Footer";
-import FadeInSection from "../FadeInSection";
 
 const AppLayout = () => {
   return (

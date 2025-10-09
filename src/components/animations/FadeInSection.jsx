@@ -1,5 +1,4 @@
-// src/components/FadeInSection.jsx
-import useInView from "../hooks/useInView";
+import useInView from "../../hooks/useInView";
 
 export default function FadeInSection({ children, className = "" }) {
   const [ref, isVisible] = useInView();
