@@ -17,72 +17,51 @@ const StaticNavbar = ({ className = "" }) => {
       </div>
       <div>
         <ul className="flex flex-row flex-wrap justify-between gap-10">
-          <NavLink
-            activeClassName="text-main"
-            className={({ isActive }) =>
-              `font-bold transition-colors duration-300 ${
-                isActive ? "text-main" : "text-white"
-              }`
-            }
-            to={"/directiva"}
-          >
-            <Text type={"neon-white-green"} weight={"bold"}>
-              Junta Directiva
-            </Text>
-          </NavLink>
-          <NavLink
-            className={({ isActive }) =>
-              `font-bold transition-colors duration-300 ${
-                isActive ? "text-main" : "text-white"
-              }`
-            }
-            to={"/roadmap"}
-          >
-            <Text type={"neon-white-green"} weight={"bold"}>
-              Roadmap
-            </Text>
-          </NavLink>
-          <NavLink
-            className={({ isActive }) =>
-              `font-bold transition-colors duration-300 ${
-                isActive ? "text-main" : "text-white"
-              }`
-            }
-            to={"/catalogo"}
-          >
-            <Text type={"neon-white-green"} weight={"bold"}>
-              Catálogo
-            </Text>
-          </NavLink>
-          <NavLink
-            className={({ isActive }) =>
-              `font-bold transition-colors duration-300 ${
-                isActive ? "text-main" : "text-white"
-              }`
-            }
-            to={"/logros"}
-          >
-            <Text type={"neon-white-green"} weight={"bold"}>
-              Logros
-            </Text>
-          </NavLink>
-          <NavLink
-            className={({ isActive }) =>
-              `font-bold transition-colors duration-300 ${
-                isActive ? "text-main" : "text-white"
-              }`
-            }
-            to={"/blog"}
-          >
-            <Text type={"neon-white-green"} weight={"bold"}>
-              Blog
-            </Text>
-          </NavLink>
+          <li>
+            <a
+              href="#nosotros"
+              className="font-bold text-white hover:text-main transition-colors duration-300"
+            >
+              <Text type="neon-white-green" weight="bold">
+                Nosotros
+              </Text>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#eventos"
+              className="font-bold text-white hover:text-main transition-colors duration-300"
+            >
+              <Text type="neon-white-green" weight="bold">
+                Eventos
+              </Text>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#directiva"
+              className="font-bold text-white hover:text-main transition-colors duration-300"
+            >
+              <Text type="neon-white-green" weight="bold">
+                Junta Directiva
+              </Text>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#contacto"
+              className="font-bold text-white hover:text-main transition-colors duration-300"
+            >
+              <Text type="neon-white-green" weight="bold">
+                Contacto
+              </Text>
+            </a>
+          </li>
         </ul>
       </div>
 
       <div>
-        <PrimaryButton text={"INICIAR SESIÓN"}></PrimaryButton>
+        <PrimaryButton text="INICIAR SESIÓN" className={"hidden"} />
       </div>
     </nav>
   );

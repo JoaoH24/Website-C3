@@ -275,3 +275,14 @@
     text-shadow: 0 0 20px rgba(0, 255, 106, 1), 0 0 40px rgba(0, 255, 106, 0.8);
   }
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+#nosotros,
+#eventos,
+#directiva,
+#contacto {
+  scroll-margin-top: 6.8rem;
+}
