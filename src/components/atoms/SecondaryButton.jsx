@@ -1,4 +1,11 @@
-const SecondaryButton = ({ text, children, positionChilden, className }) => {
+const SecondaryButton = ({
+  text,
+  children,
+  positionChilden,
+  typeButton = "button",
+  actionClick,
+  className,
+}) => {
   const baseStyles = `
     relative overflow-hidden
     bg-transparent
@@ -18,7 +25,15 @@ const SecondaryButton = ({ text, children, positionChilden, className }) => {
     </>
   );
 
-  return <button className={`${baseStyles} ${className}`}>{content}</button>;
+  return (
+    <button
+      type={typeButton}
+      onClick={actionClick}
+      className={`${baseStyles} ${className}`}
+    >
+      {content}
+    </button>
+  );
 };
 
 export default SecondaryButton;

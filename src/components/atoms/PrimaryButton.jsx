@@ -1,4 +1,11 @@
-const PrimaryButton = ({ text, children, positionChilden, className }) => {
+const PrimaryButton = ({
+  text,
+  children,
+  positionChilden,
+  typeButton = "button",
+  actionClick,
+  className,
+}) => {
   const baseStyles = `
     flex justify-center gap-2
     relative overflow-hidden
@@ -17,7 +24,15 @@ const PrimaryButton = ({ text, children, positionChilden, className }) => {
     </>
   );
 
-  return <button className={`${baseStyles} ${className}`}>{content}</button>;
+  return (
+    <button
+      type={typeButton}
+      onClick={actionClick}
+      className={`${baseStyles} ${className}`}
+    >
+      {content}
+    </button>
+  );
 };
 
 export default PrimaryButton;

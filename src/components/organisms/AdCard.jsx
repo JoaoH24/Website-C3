@@ -3,7 +3,7 @@ import Heading from "../atoms/Heading";
 import { IconMapPinShare, IconCalendarEvent } from "@tabler/icons-react";
 import { Link } from "react-router-dom";
 
-const AdCard = ({ title, place, date, pathImage, descriptionImage }) => {
+const AdCard = ({ title, place, date, pathImage, descriptionImage, url }) => {
   return (
     <div
       className="flex flex-col bg-card border-main border-2 rounded-4xl p-10 max-w-100 gap-5 
@@ -32,8 +32,8 @@ const AdCard = ({ title, place, date, pathImage, descriptionImage }) => {
         </Text>
       </div>
       <div className="flex justify-end">
-        <Link to={"/directiva"} target="_self">
-          <Text type={"green"} weight={"bold"} size={"2xl"}>
+        <Link to={url} target="_blank">
+          <Text type={"neon-green"} weight={"bold"} size={"2xl"}>
             Ver más
           </Text>
         </Link>

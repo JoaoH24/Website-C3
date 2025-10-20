@@ -2,12 +2,14 @@ import PrimaryButton from "../atoms/PrimaryButton";
 import SecondaryButton from "../atoms/SecondaryButton";
 import Text from "../atoms/Text";
 import FadeInSection from "../animations/FadeInSection";
+import Logo from "../../assets/images/isotipo.webp";
+import { Link } from "react-router-dom";
 
-const Banner = () => {
+const Banner = ({ intetactionUserBtn1, intetactionUserBtn2 }) => {
   return (
     <div
       className={
-        "bg-[radial-gradient(circle_at_0%_40%,rgb(13,17,23)_0%,transparent_100%),linear-gradient(180deg,transparent_0%,rgb(13,17,23)_85%),linear-gradient(270deg,transparent_0%,rgb(13,17,23)_80%),url('/src/assets/images/UNI.png')] bg-cover bg-no-repeat bg-center"
+        "bg-[radial-gradient(circle_at_0%_40%,rgb(13,17,23)_0%,transparent_100%),linear-gradient(180deg,transparent_0%,rgb(13,17,23)_85%),linear-gradient(270deg,transparent_0%,rgb(13,17,23)_80%),url('/src/assets/images/UNI.webp')] bg-cover bg-no-repeat bg-center"
       }
     >
       <FadeInSection
@@ -27,7 +29,7 @@ const Banner = () => {
             </div>
             <div className="flex flex-row flex-wrap">
               <Text type={"gradient"} size={"5xl"}>
-                Cultura,
+                Cultura,&nbsp;
               </Text>
               <Text size={"5xl"}>Conocimiento y</Text>
             </div>
@@ -45,13 +47,23 @@ const Banner = () => {
               </Text>
             </div>
             <div className="flex flex-row gap-4">
-              <PrimaryButton text={"CONÓCENOS"}></PrimaryButton>
-              <SecondaryButton text={"CONTÁCTANOS"}></SecondaryButton>
+              <Link smooth to={"#directiva"}>
+                <PrimaryButton
+                  actionClick={intetactionUserBtn1}
+                  text={"CONÓCENOS"}
+                ></PrimaryButton>
+              </Link>
+              <Link>
+                <SecondaryButton
+                  actionClick={intetactionUserBtn2}
+                  text={"CONTÁCTANOS"}
+                ></SecondaryButton>
+              </Link>
             </div>
           </div>
         </div>
         <div>
-          <img src="/src/assets/Logo.png" alt="" />
+          <img src={Logo} alt="Logo cccuni" />
         </div>
       </FadeInSection>
     </div>

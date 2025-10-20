@@ -1,10 +1,22 @@
 import Dot from "../atoms/Dot";
 
-const Dots = ({ total, direction, className }) => {
+const Dots = ({
+  total,
+  activeIndex,
+  onSelect,
+  direction = "row",
+  className,
+}) => {
   return (
-    <div className={`flex flex-${direction} gap-4`}>
+    <div className={`flex flex-${direction} gap-4 justify-center mt-4`}>
       {Array.from({ length: total }).map((_, i) => (
-        <Dot className={className} index={i} key={i}></Dot>
+        <Dot
+          key={i}
+          index={i}
+          isActive={i === activeIndex}
+          onClick={onSelect}
+          className={className}
+        />
       ))}
     </div>
   );

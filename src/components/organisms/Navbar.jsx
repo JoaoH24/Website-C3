@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import PrimaryButton from "../atoms/PrimaryButton";
+import Text from "../atoms/Text";
 import ProfileImage from "../atoms/ProfileImage";
-import Logo from "../../assets/Logo.png";
+import Logo from "../../assets/images/isotipo.webp";
 
 const Navbar = ({ className = "" }) => {
   const [scrolled, setScrolled] = useState(false);
@@ -20,7 +21,7 @@ const Navbar = ({ className = "" }) => {
   return (
     <nav
       className={`
-        fixed top-0 left-0 w-full z-50
+        fixed top-0 left-0 w-full z-50 h-20
         flex flex-row flex-wrap justify-between items-center px-4
         transition-all duration-500
         ${
@@ -39,21 +40,66 @@ const Navbar = ({ className = "" }) => {
 
       <div>
         <ul className="flex flex-row flex-wrap justify-between gap-10">
-          <Link className="text-white font-medium" to={"/directiva"}>
-            Junta Directiva
-          </Link>
-          <Link className="text-white font-medium" to={"/roadmap"}>
-            Roadmaps
-          </Link>
-          <Link className="text-white font-medium" to={"/catalogo"}>
-            Catálogo
-          </Link>
-          <Link className="text-white font-medium" to={"/logros"}>
-            Logros
-          </Link>
-          <Link className="text-white font-medium" to={"/blog"}>
-            Blog
-          </Link>
+          <NavLink
+            className={({ isActive }) =>
+              `font-bold transition-colors duration-300 ${
+                isActive ? "text-main" : "text-white"
+              }`
+            }
+            to={"/directiva"}
+          >
+            <Text type={"neon-white-green"} weight={"bold"}>
+              Junta Directiva
+            </Text>
+          </NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              `font-bold transition-colors duration-300 ${
+                isActive ? "text-main" : "text-white"
+              }`
+            }
+            to={"/roadmap"}
+          >
+            <Text type={"neon-white-green"} weight={"bold"}>
+              Roadmap
+            </Text>
+          </NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              `font-bold transition-colors duration-300 ${
+                isActive ? "text-main" : "text-white"
+              }`
+            }
+            to={"/catalogo"}
+          >
+            <Text type={"neon-white-green"} weight={"bold"}>
+              Catálogo
+            </Text>
+          </NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              `font-bold transition-colors duration-300 ${
+                isActive ? "text-main" : "text-white"
+              }`
+            }
+            to={"/logros"}
+          >
+            <Text type={"neon-white-green"} weight={"bold"}>
+              Logros
+            </Text>
+          </NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              `font-bold transition-colors duration-300 ${
+                isActive ? "text-main" : "text-white"
+              }`
+            }
+            to={"/blog"}
+          >
+            <Text type={"neon-white-green"} weight={"bold"}>
+              Blog
+            </Text>
+          </NavLink>
         </ul>
       </div>
 

@@ -1,9 +1,12 @@
 import Heading from "../atoms/Heading";
 import Text from "../atoms/Text";
 
-const SimpleSection = ({ children, className = "" }) => {
+const SimpleSection = ({ id, children, className = "" }) => {
   return (
-    <section className={`flex flex-col justify-center bg-bgd ${className}`}>
+    <section
+      id={id}
+      className={`flex flex-col justify-center bg-bgd ${className}`}
+    >
       {children}
     </section>
   );

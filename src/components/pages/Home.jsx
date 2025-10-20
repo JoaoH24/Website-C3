@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import FadeInSection from "../animations/FadeInSection";
 import Banner from "../organisms/Banner";
 import PanelForm from "../organisms/PanelForm";
@@ -7,23 +8,44 @@ import Text from "../atoms/Text";
 import Carousel from "../organisms/Carousel";
 import TwoColumnSection from "../templates/TwoColumnSection";
 import AdCard from "../organisms/AdCard";
-import { IconBrandOpenSourceFilled } from "@tabler/icons-react";
-import { IconBrandTablerFilled } from "@tabler/icons-react";
-import { IconBrandAngularFilled } from "@tabler/icons-react";
-import { IconBrandAppleFilled } from "@tabler/icons-react";
+import { useAd } from "../../hooks/useAd";
+import { useSponsors } from "../../hooks/useSponsors";
+import { Link } from "react-router-dom";
 
 const Home = () => {
+  useEffect(() => {
+    document.title = "Centro Cultural de Ciberseguridad";
+  }, []);
+
+  const { Ads, loadingAd } = useAd();
+  const { Sponsor, loadingSp } = useSponsors();
+
   return (
-    <div className="grid grid-rows-[auto_1fr_auto] gap-20 ">
-      <Banner></Banner>
+    <div className="flex flex-col gap-20">
+      <Banner
+        intetactionUserBtn1={() => {
+          const section = document.getElementById("nosotros");
+          const navbarHeight = 140;
+          const y =
+            section.getBoundingClientRect().top + window.scrollY - navbarHeight;
+          window.scrollTo({ top: y, behavior: "smooth" });
+        }}
+        intetactionUserBtn2={() => {
+          const section = document.getElementById("contacto");
+          const navbarHeight = 40;
+          const y =
+            section.getBoundingClientRect().top + window.scrollY - navbarHeight;
+          window.scrollTo({ top: y, behavior: "smooth" });
+        }}
+      ></Banner>
 
       <FadeInSection>
-        <SimpleSection className="gap-10">
+        <SimpleSection id={"nosotros"} className="gap-10 px-20">
           <Heading level={2} size={4} className="text-center">
             ¿Quienes Somos?
           </Heading>
-          <div>
-            <Text size="2xl" className="text-center px-100">
+          <div className="flex flex-col max-w-320 m-auto">
+            <Text size="2xl" className="text-center">
               El
               <Text type="gradient">
                 {" "}
@@ -34,7 +56,7 @@ const Home = () => {
               del pensamiento crítico frente a los desafíos del mundo
               tecnológico actual.
             </Text>
-            <Text size="2xl" className="text-center px-100">
+            <Text size="2xl" className="text-center">
               Buscamos conectar a estudiantes, profesionales, instituciones y
               entusiastas en un espacio donde el conocimiento, la ética y la
               innovación se encuentren. A través de talleres, charlas, proyectos
@@ -48,32 +70,38 @@ const Home = () => {
       </FadeInSection>
 
       <FadeInSection>
-        <SimpleSection className="gap-10">
+        <SimpleSection className="gap-10" id={"eventos"}>
           <Heading level={2} size={4} className="text-center">
-            Anuncios
+            Eventos
           </Heading>
-          <div className="flex gap-10 justify-center">
-            <AdCard
-              pathImage={"/src/assets/images/LogoC3Conf-Photoroom.png"}
-              title={"Tercera Cumbre Anual de Ciberseguridad"}
-              place={"FIEE - Universidad Nacional de Ingeniería"}
-              date={"27,28 y 29 de noviembre"}
-            ></AdCard>
-            <AdCard
-              pathImage={"/src/assets/images/LogoCCCTF-Photoroom.png"}
-              descriptionImage={
-                "Logo relacionado a el capture de flag organizado por c3"
-              }
-              title={"C3 Capture the Flag"}
-              place={"FIEE - Universidad Nacional de Ingeniería"}
-              date={"27,28 y 29 de noviembre"}
-            ></AdCard>
-          </div>
+          {loadingAd ? (
+            <Text type="green" className="text-center">
+              Cargando datos...
+            </Text>
+          ) : Ads.length === 0 ? (
+            <Text type="green" className="text-center">
+              No hay eventos disponibles.
+            </Text>
+          ) : (
+            <div className="flex gap-10 justify-center flex-wrap">
+              {Ads.map((ad) => (
+                <AdCard
+                  key={ad.id}
+                  pathImage={ad.Imagen}
+                  descriptionImage={ad.Descripción}
+                  title={ad.Titulo}
+                  place={ad.Lugar}
+                  date={ad.Fecha}
+                  url={ad.Url}
+                />
+              ))}
+            </div>
+          )}
         </SimpleSection>
       </FadeInSection>
 
       <FadeInSection>
-        <SimpleSection className="flex flex-col gap-10">
+        <SimpleSection className="flex flex-col gap-10" id={"directiva"}>
           <Heading level={2} size={4} className="text-center">
             Junta Directiva
           </Heading>
@@ -83,33 +111,52 @@ const Home = () => {
 
       <FadeInSection>
         <TwoColumnSection
-          className="bg-[linear-gradient(135deg,rgba(0,191,255,0.2)_15%,rgba(0,255,106,0.2)_55%,rgba(46,46,46,0.2)_100%)] py-20"
+          id={"contacto"}
+          className="bg-[linear-gradient(135deg,rgba(0,191,255,0.2)_15%,rgba(0,255,106,0.2)_55%,rgba(46,46,46,0.2)_100%)] py-20 px-20"
           dirChildenLeft="col"
           childrenLeft={
             <>
-              <Heading level={2} size={4} className="max-w-xl">
+              <Heading level={2} size={4} className="min-w-100 max-w-xl">
                 ¿Te gustaría colaborar con nosotros?
               </Heading>
-              <Text type="green" size="2xl" className="max-w-xl">
+              <Text type="green" size="2xl" className="min-w-100 max-w-xl">
                 Si representas a una empresa, institución educativa o deseas
                 vincularte como aliado estratégico, este es el lugar para
                 comenzar.
               </Text>
             </>
           }
-          childrenRight={<PanelForm className="w-40" />}
+          childrenRight={<PanelForm />}
         />
       </FadeInSection>
       <FadeInSection>
         <SimpleSection className="flex flex-col gap-10">
           <Heading level={2} size={4} className="text-center">
-            Nuestros aliados estrategicos
+            Nuestros Sponsors
           </Heading>
-          <div className="flex gap-10 justify-center">
-            <IconBrandOpenSourceFilled color="var(--color-text-w)" size={50} />
-            <IconBrandTablerFilled color="var(--color-text-w)" size={50} />
-            <IconBrandAngularFilled color="var(--color-text-w)" size={50} />
-            <IconBrandAppleFilled color="var(--color-text-w)" size={50} />
+          <div className="flex gap-10 justify-center flex-wrap">
+            {loadingSp ? (
+              <Text type="green" className="text-center">
+                Cargando sponsors...
+              </Text>
+            ) : Ads.length === 0 ? (
+              <Text type="green" className="text-center">
+                No hay sponsors disponibles.
+              </Text>
+            ) : (
+              <div>
+                {Sponsor.map((sp) => (
+                  <Link to={sp.Url} target="_blank">
+                    <img
+                      key={sp.id}
+                      src={sp.Imagen}
+                      alt={sp.Descripción}
+                      className="max-w-20 max-h-20 transition-shadow duration-300 hover:shadow-[0_0_20px_var(--color-main)] rounded-full"
+                    />
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
         </SimpleSection>
       </FadeInSection>

@@ -1,7 +1,8 @@
-const LabelText = ({ id, label, className }) => {
+const LabelText = ({ id, label, form, className }) => {
   return (
     <label
-      htmlFor={id}
+      for={id}
+      form={form}
       className={`font-ps font-normal text-white ${className}`}
     >
       {label}

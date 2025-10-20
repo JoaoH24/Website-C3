@@ -1,8 +1,12 @@
-const Dot = ({ className, index }) => {
+const Dot = ({ index, isActive, onClick, className = "" }) => {
   return (
     <button
-      className={`rounded-full w-4 h-4 bg-main ${className}`}
-      id={`dot-${index}`}
+      onClick={() => onClick(index)}
+      className={`
+        w-3 h-3 rounded-full transition-all duration-300
+        ${isActive ? "bg-[var(--color-main)] scale-125" : "bg-gray-500"}
+        ${className}
+      `}
     ></button>
   );
 };

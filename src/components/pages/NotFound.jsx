@@ -1,9 +1,10 @@
 import { useRouteError } from "react-router-dom";
 
-import Navbar from "../organisms/Navbar";
+import StaticNavbar from "../organisms/StaticNavbar";
 import Footer from "../organisms/Footer";
 import Heading from "../atoms/Heading";
 import Text from "../atoms/Text";
+import notFound from "../../assets/images/not-found.gif";
 
 const NotFound = () => {
   const error = useRouteError();
@@ -11,14 +12,10 @@ const NotFound = () => {
   return (
     <>
       <header className="fixed w-full">
-        <Navbar></Navbar>
+        <StaticNavbar></StaticNavbar>
       </header>
       <main className="bg-bgd flex flex-col items-center gap-5 h-dvh py-80">
-        <img
-          src="https://mir-s3-cdn-cf.behance.net/project_modules/source/06f21a161921919.63cd7887d0a70.gif"
-          alt="404 not found"
-          className="size-50"
-        />
+        <img src={notFound} alt="404 not found" className="max-w-58" />
         <Heading type={"gradient"} level={2} size={5}>
           Oops!
         </Heading>

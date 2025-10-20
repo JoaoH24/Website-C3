@@ -15,6 +15,8 @@ const InputText = ({
       <textarea
         id={id}
         style={{ resize: "none" }}
+        form={form}
+        name={name}
         rows={rowsArea}
         placeholder={placeholder}
         className={`p-2 border-2 rounded-lg border-main text-white ${className}`}

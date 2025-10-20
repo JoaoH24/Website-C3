@@ -5,6 +5,7 @@ const Field = ({
   id,
   label,
   type,
+  formDad,
   required,
   placeholder,
   rowsArea,
@@ -12,10 +13,12 @@ const Field = ({
 }) => {
   return (
     <div className={`flex flex-col ${className}`}>
-      <LabelText id={id} label={label}></LabelText>
+      <LabelText id={id} form={formDad} label={label}></LabelText>
       <InputText
         id={id}
         type={type}
+        name={id}
+        form={formDad}
         required={required}
         placeholder={placeholder}
         rowsArea={rowsArea}
