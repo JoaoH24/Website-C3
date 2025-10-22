@@ -47,7 +47,7 @@ const Banner = ({ intetactionUserBtn1, intetactionUserBtn2 }) => {
               </Text>
             </div>
             <div className="flex flex-row gap-4">
-              <Link smooth to={"#directiva"}>
+              <Link to={"#directiva"}>
                 <PrimaryButton
                   actionClick={intetactionUserBtn1}
                   text={"CONÓCENOS"}
